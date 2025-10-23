@@ -41,6 +41,9 @@ header {
     z-index: 99;
     height: 100%;
     background-color: white;
+    border-right-style: solid;
+    border-width: 1.5px;
+    border-color: rgb(143, 143, 143);
 }
 
 .logos {
@@ -149,6 +152,9 @@ nav {
     height: 100%;
     width: 100%;
     background-color: var(--fundo);
+    border-right-style: solid;
+    border-width: 1.5px;
+    border-color: rgb(143, 143, 143);
 }
 
 nav img {
@@ -181,21 +187,63 @@ nav img {
     height: 60%;
 }
 
-
-
-
+/* Section Conversas */
 #sectionConversas {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
     min-width: 320px;
     grid-area: e3;
     height: 100%;
     width: 100%;
     z-index: 99;
-    background-color: purple;
+    border-right-style: solid;
+    border-width: 1.5px;
+    border-color: rgb(143, 143, 143);
 }
 
+.contato {
+    display: flex;
+    width: 95%;
+    height: 15%;
+    border-radius: 15px;
+    background-color: red;
+}
+
+.imgPerfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.imgPerfil img {
+    width: 85%;
+    height: 85%;
+    background-color: purple;
+    border-radius: 100%;
+}
+
+.informacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    width: 60%;
+    padding-left: 5px;
+    background-color: orange;
+}
+
+.data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+}
+
+/* Section Main */
 #sectionMain {
     grid-area: e4;
     height: 100%;
     height: 100%;
-    background-color: blue;
 }
