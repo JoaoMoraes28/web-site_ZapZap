@@ -19,11 +19,13 @@
                 <img class="opcoes" src="./img/opcoes.png" alt="">
             </div>
         </div>
-        <div class="input">
-            <div class="busca">
-                <img class="lupa" src="./img/busca.png" alt="">
+        <div class="containerInputHeader">
+            <div class="input">
+                <div class="busca">
+                    <img class="lupa" src="./img/busca.png" alt="">
+                </div>
+                <input type="text" placeholder="Pesquisar ou começar uma nova conversa">
             </div>
-            <input type="text" placeholder="Pesquisar ou começar uma nova conversa">
         </div>
         <ul>
             <li id="tudo">Tudo</li>
@@ -34,8 +36,10 @@
         <div class="notificacoesDes">
             <div class="notConteudo">
                 <img class="sinoNot" src="./img/notificacao.png" alt="">
-                <span>As notificações de mesagens estão desativadas</span>
-                <img id="closeNot" src="./img/close.png" alt="">
+                <span>As notificações de mesagens estão desativadas.<span id="ativarNot"> Ativar</span></span>
+                <div class="divCloseNot">
+                    <img id="closeNot" src="./img/close.png" alt="">
+                </div>
             </div>
         </div>
     </header>
@@ -66,7 +70,7 @@
             </div>
         </div>
     </nav>
-    <section id="sectionConversas">
+    <section id="conversasSection">
         <div class="contato">
             <div class="imgPerfil">
                 <img src="./img/busca.png" alt="">
@@ -79,7 +83,7 @@
         </div>
     </section>
     <section id="sectionMain">
-        <div class="headerMain">
+        <div id="headerMain">
             <div class="perfilMain">
                 <img id="imgPerfilMain" src="./img/busca.png" alt="">
             </div>
@@ -94,28 +98,18 @@
             </div>
         </div>
         <div id="conversa">
-            <!-- <div class="divMensagemMe">
-                <span class="mensagemMe">dsdadadsdadad</span>
-                <span class="dataMensagemMe">10:41</span>
+            <div id="telaInicial">
+                <div class="containerImgInicio">
+                    <img src="./img/imgInicioApp.png" alt="">
+                </div>
+                <h2>Baixar o WhatsApp para Windows</h2>
+                <p>Baixe o novo app para Windows para fazer ligações, usar o compartilhamento de tela e ter uma
+                    experiência de uso mais rápida
+                </p>
+                <button>Baixar</button>
             </div>
-            <div class="divMensagemContato">
-                <span class="mensagemContato">dsdadadsdadad</span>
-                <span class="dataMensagemContato">10:41</span>
-            </div>
-            <div class="divMensagemMe">
-                <span class="mensagemMe">dsdadsaddadsdadad</span>
-                <span class="dataMensagemMe">10:41</span>
-            </div>
-            <div class="divMensagemContato">
-                <span class="mensagemContato">dsdadadsdadad</span>
-                <span class="dataMensagemContato">10:41</span>
-            </div>
-            <div class="divMensagemMe">
-                <span class="mensagemMe">dsdadadsdadad</span>
-                <span class="dataMensagemMe">10:41</span>
-            </div> -->
         </div>
-        <div class="inputMain">
+        <div id="divInputMain">
             <div class="containerInput">
                 <div class="plusSticker">
                     <img src="./img/plus.png" alt="">
@@ -130,7 +124,73 @@
             </div>
         </div>
     </section>
-    <section id="teste"></section>
+    <section id="statusSection">
+        <div class="headerStatus">
+            <h2>Status</h2>
+            <div class="imgHeader">
+                <img src="./img/plus.png" alt="">
+                <img src="./img/opcoes.png" alt="">
+            </div>
+        </div>
+        <div class="perfilStatus">
+            <div class="containerImgStatus">
+                <img id="perfilStatusImg" src="./img/busca.png" alt="">
+                <div class="plusStatus">
+                    <img src="./img/plusWhite.png" alt="">
+                </div>
+            </div>
+            <div class="containerInfPefilStatus">
+                <p>Meu status</p>
+                <p>Clique para atualizar seu status</p>
+            </div>
+        </div>
+        <div class="statusRecente">
+            <h3>Recente</h3>
+        </div>
+        <div class="statusVisto">
+            <h3>Visto</h3>
+        </div>
+        <div class="footerStatus">
+            <div>
+                <img src="./img/cadeadoMessage.png" alt="">
+            </div>
+            <p>Suas atualizações de status são protegidos com a <span>criptografia de ponta a ponta</span></p>
+        </div>
+    </section>
+    <section id="canaisSection">
+        <div class="containerHeaderCanais">
+            <h2>Canais</h2>
+            <img src="./img/plus.png" alt="">
+        </div>
+        <div class="infoCanais">
+            <p>Receba atualizações sobre os assuntos do seu interesse</p>
+            <p>Encontre canais que vocêpode seguir nesta página</p>
+        </div>
+        <div class="perfiCanais"></div>
+        <div class="containerButtonCanais">
+            <button>Descobrir mais</button>
+        </div>
+    </section>
+    <section id="comunidadesSection">
+        <div class="headerComunidade">
+            <h2>Comunidades</h2>
+            <img src="./img/plus.png" alt="">
+        </div>
+        <div class="containerInfoComunidade">
+            <div class="infComunidades">
+                <img class="imgComunidades" src="./img/imgComunidade.png" alt="">
+                <p>Conecte-se com outras pessoas com as comunidades</p>
+                <p>As comunidades permitem reunir pessoas em grupos de assuntos específicos e receber avisos de admins
+                    com
+                    facilidade. As comunidades das quais você participa serão exibidas nesta página.
+                </p>
+                <span>Exemplos de comunidades <img src="./img/arrowComunidade.png" alt=""></span>
+            </div>
+        </div>
+        <div class="containerButtonComunidade">
+            <button>Criar comunidade</button>
+        </div>
+    </section>
 
 </body>
 

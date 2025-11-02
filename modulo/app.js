@@ -1,5 +1,16 @@
 'use strict'
 
+var fisrtCall = true
+var sectionHigh = 'conversas'
+const iconContatos = document.getElementById('conversas')
+const iconStatus = document.getElementById('status')
+const iconCanais = document.getElementById('canais')
+const iconComunidade = document.getElementById('comunidades')
+const sectionConversas = document.getElementById('conversasSection')
+const sectionStatus = document.getElementById('statusSection')
+const sectionCanais = document.getElementById('canaisSection')
+const sectionComunidades = document.getElementById('comunidadesSection')
+
 async function loadContacts() {
     let url = 'https://api-zapzap.onrender.com/v1/messages/11987876567'
     let response = await fetch(url)
@@ -17,7 +28,6 @@ async function getMessages(id) {
 }
 
 function createContacts(contacts) {
-    const sectionConversas = document.getElementById('sectionConversas')
     let contatos = []
     contacts.forEach((contact) => {
         const divContato = document.createElement('div')
@@ -58,8 +68,24 @@ function addListener(contato) {
     contato.addEventListener('click', async () => {
         let id = String(event.currentTarget.id).split('/')
         const sectionConversa = document.getElementById('conversa')
+        const sectionMain = document.getElementById('sectionMain')
         const nomeMain = document.getElementById('nomeMain')
         const imgPerfil = document.getElementById('imgPerfilMain')
+
+        if (fisrtCall) {
+            const inputMain = document.getElementById('divInputMain')
+            const headerMain = document.getElementById('headerMain')
+            const telaInicial = document.getElementById('telaInicial')
+
+            sectionMain.style.backgroundImage = 'url(./img/zapzap.jpg)'
+            sectionConversa.style.justifyContent = 'start'
+            sectionConversa.style.alignItems = 'start'
+            telaInicial.style.display = 'none'
+            headerMain.style.display = 'flex'
+            inputMain.style.display = 'flex'
+
+            fisrtCall = false
+        }
 
         nomeMain.innerHTML = id[1]
         //imgPerfil.src = id[2]
@@ -68,7 +94,7 @@ function addListener(contato) {
             sectionConversa.removeChild(sectionConversa.firstChild)
         }
 
-        
+
         let messages = await getMessages(id[0])
         messages.message[0].messages[0].forEach(createMessages)
     })
@@ -100,5 +126,33 @@ function createMessages(message) {
 
     }
 }
+
+iconContatos.addEventListener('click', () => {
+    let sectionNone = document.getElementById(`${sectionHigh}Section`)
+    sectionNone.style.display = 'none'
+    sectionConversas.style.display = 'flex'
+    sectionHigh = event.currentTarget.id
+})
+
+iconStatus.addEventListener('click', () => {
+    let sectionNone = document.getElementById(`${sectionHigh}Section`)
+    sectionNone.style.display = 'none'
+    sectionStatus.style.display = 'flex'
+    sectionHigh = event.currentTarget.id
+})
+
+iconCanais.addEventListener('click', () => {
+    let sectionNone = document.getElementById(`${sectionHigh}Section`)
+    sectionNone.style.display = 'none'
+    sectionCanais.style.display = 'flex'
+    sectionHigh = event.currentTarget.id
+})
+
+iconComunidade.addEventListener('click', () => {
+    let sectionNone = document.getElementById(`${sectionHigh}Section`)
+    sectionNone.style.display = 'none'
+    sectionComunidades.style.display = 'flex'
+    sectionHigh = event.currentTarget.id
+})
 
 loadContacts()
