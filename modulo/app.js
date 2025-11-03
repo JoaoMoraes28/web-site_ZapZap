@@ -2,14 +2,17 @@
 
 var fisrtCall = true
 var sectionHigh = 'conversas'
+var divIconHigh = null
 const iconContatos = document.getElementById('conversas')
 const iconStatus = document.getElementById('status')
 const iconCanais = document.getElementById('canais')
 const iconComunidade = document.getElementById('comunidades')
+const iconConfig = document.getElementById('configuracoes')
 const sectionConversas = document.getElementById('conversasSection')
 const sectionStatus = document.getElementById('statusSection')
 const sectionCanais = document.getElementById('canaisSection')
 const sectionComunidades = document.getElementById('comunidadesSection')
+const sectionConfig = document.getElementById('configuracoesSection')
 
 async function loadContacts() {
     let url = 'https://api-zapzap.onrender.com/v1/messages/11987876567'
@@ -132,6 +135,14 @@ iconContatos.addEventListener('click', () => {
     sectionNone.style.display = 'none'
     sectionConversas.style.display = 'flex'
     sectionHigh = event.currentTarget.id
+
+    if (divIconHigh != iconContatos.parentNode.id) {
+        const highDiv = document.getElementById(`${divIconHigh}`)
+        const divIcon = document.getElementById('conversasDiv')
+        divIcon.style.backgroundColor = '#d2d2d2'
+        highDiv.style.backgroundColor = '#f7f5f3'
+        divIconHigh = iconContatos.parentNode.id
+    }
 })
 
 iconStatus.addEventListener('click', () => {
@@ -139,6 +150,14 @@ iconStatus.addEventListener('click', () => {
     sectionNone.style.display = 'none'
     sectionStatus.style.display = 'flex'
     sectionHigh = event.currentTarget.id
+
+    if (divIconHigh != iconStatus.parentNode.id) {
+        const highDiv = document.getElementById(`${divIconHigh}`)
+        const divIcon = document.getElementById('statusDiv')
+        divIcon.style.backgroundColor = '#d2d2d2'
+        highDiv.style.backgroundColor = '#f7f5f3'
+        divIconHigh = iconStatus.parentNode.id
+    }
 })
 
 iconCanais.addEventListener('click', () => {
@@ -146,6 +165,14 @@ iconCanais.addEventListener('click', () => {
     sectionNone.style.display = 'none'
     sectionCanais.style.display = 'flex'
     sectionHigh = event.currentTarget.id
+
+    if (divIconHigh != iconCanais.parentNode.id) {
+        const highDiv = document.getElementById(`${divIconHigh}`)
+        const divIcon = document.getElementById('canaisDiv')
+        divIcon.style.backgroundColor = '#d2d2d2'
+        highDiv.style.backgroundColor = '#f7f5f3'
+        divIconHigh = iconCanais.parentNode.id
+    }
 })
 
 iconComunidade.addEventListener('click', () => {
@@ -153,6 +180,30 @@ iconComunidade.addEventListener('click', () => {
     sectionNone.style.display = 'none'
     sectionComunidades.style.display = 'flex'
     sectionHigh = event.currentTarget.id
+
+    if (divIconHigh != iconComunidade.parentNode.id) {
+        const highDiv = document.getElementById(`${divIconHigh}`)
+        const divIcon = document.getElementById('comunidadesDiv')
+        divIcon.style.backgroundColor = '#d2d2d2'
+        highDiv.style.backgroundColor = '#f7f5f3'
+        divIconHigh = iconComunidade.parentNode.id
+    }
 })
 
-loadContacts()
+iconConfig.addEventListener('click', () => {
+    let sectionNone = document.getElementById(`${sectionHigh}Section`)
+    sectionNone.style.display = 'none'
+    sectionConfig.style.display = 'flex'
+    sectionHigh = event.currentTarget.id
+
+    if (divIconHigh != 4) {
+        const highDiv = document.getElementById(`${divIconHigh}`)
+        const divIcon = document.getElementById('configuracoesDiv')
+        divIcon.style.backgroundColor = '#d2d2d2'
+        highDiv.style.backgroundColor = '#f7f5f3'
+        divIconHigh = iconConfig.parentNode.id
+    }
+})
+
+divIconHigh = iconContatos.parentNode.id
+//loadContacts()

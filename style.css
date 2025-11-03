@@ -198,6 +198,10 @@ body {
     color: var(--verde_forte);
 }
 
+.footerStatus span:hover {
+    text-decoration: underline;
+}
+
 
 #canaisSection {
     position: absolute;
@@ -385,6 +389,150 @@ body {
     transform: scale(1.05);
 }
 
+#configuracoesSection {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    left: 75px;
+    z-index: 30;
+    min-width: 320px;
+    background-color: white;
+    width: 30%;
+    height: 100vh;
+    border-right-style: solid;
+    border-width: 1.5px;
+    border-color: rgb(143, 143, 143);
+}
+
+.headerConfig {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 230px;
+    padding-top: 20px;
+    gap: 20px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    box-sizing: calc(100% - 20px);
+    border-color: var(--cor_cinza_fonte);
+}
+
+.headerConfig h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.containerInputConfig {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    gap: 5px;
+    background-color: var(--input);
+}
+
+.containerInputConfig:hover {
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--cor_cinza_fonte);
+}
+
+.containerInputConfig input {
+    padding-left: 5px;
+}
+
+.containerInputConfig img {
+    width: 20px;
+    height: 20px;
+}
+
+.perfilConfig {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+}
+
+.perfilConfig img {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+
+.infConfigPerfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    gap: 5px;
+    width: calc(100% - 70px);
+    height: 100%;
+}
+
+.infConfigPerfil p:nth-child(1) {
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.infConfigPerfil p:nth-child(2) {
+    color: var(--cor_cinza_fonte_escrita);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.infoConfig {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 90%;
+    height: 630px;
+    margin-top: 10px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: var(--cor_cinza_fonte);
+}
+
+.configCard {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.configCard:hover {
+    background-color: var(--input);
+}
+
+.configCard img {
+    width: 35px;
+    height: 30px;
+}
+
+.configCard div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    width: calc(100% - 35px);
+    height: 100%;
+}
+
+.configCard div p:nth-child(2) {
+    color: var(--cor_cinza_fonte_escrita);
+}
+
+.infoConfig div:nth-child(8) p {
+    color: red;
+}
+
 /* Header */
 header {
     grid-area: e2;
@@ -548,7 +696,7 @@ nav {
 
 nav img {
     width: 90%;
-    height: 85%;
+    height: 80%;
 }
 
 .iconsNav {
@@ -569,6 +717,10 @@ nav img {
 }
 
 .iconsNav div:nth-child(-n+4):hover {
+    background-color: var(--cor_cinza_fonte);
+}
+
+.iconsNav div:nth-child(1) {
     background-color: var(--cor_cinza_fonte);
 }
 
