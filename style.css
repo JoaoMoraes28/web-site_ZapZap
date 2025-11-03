@@ -60,14 +60,13 @@ body {
     display: flex;
     align-items: center;
     width: 25%;
-    font-weight: lighter;
     padding-left: 15px;
     font-size: 20px;
 }
 
 .headerStatus img:nth-child(1) {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }
 
 .imgHeader {
@@ -75,13 +74,13 @@ body {
     justify-content: end;
     align-items: center;
     width: 75%;
-    gap: 10px;
+    gap: 15px;
     padding-right: 20px;
 }
 
 .headerStatus img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 
 .perfilStatus {
@@ -231,8 +230,8 @@ body {
 }
 
 .containerHeaderCanais img {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }
 
 .infoCanais {
@@ -312,8 +311,8 @@ body {
 }
 
 .headerComunidade img {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }
 
 .containerInfoComunidade {
@@ -491,8 +490,8 @@ body {
     flex-direction: column;
     gap: 5px;
     width: 90%;
-    height: 630px;
-    margin-top: 10px;
+    height: 640px;
+    padding: 10px 0px 10px 0px;
     border-bottom-style: solid;
     border-width: 1px;
     border-color: var(--cor_cinza_fonte);
@@ -512,8 +511,8 @@ body {
 }
 
 .configCard img {
-    width: 35px;
-    height: 30px;
+    width: 30px;
+    height: 25px;
 }
 
 .configCard div {
@@ -531,6 +530,77 @@ body {
 
 .infoConfig div:nth-child(8) p {
     color: red;
+}
+
+#perfilSection {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    left: 75px;
+    z-index: 30;
+    min-width: 320px;
+    background-color: white;
+    width: 30%;
+    height: 100vh;
+    padding: 0px 20px 0px 20px;
+    border-right-style: solid;
+    border-width: 1.5px;
+    border-color: rgb(143, 143, 143);
+}
+
+.headerPerfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 270px;
+}
+
+.headerPerfil h2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+}
+
+.headerPerfil img {
+    width: 120px;
+    height: 120px;
+    margin-top: 50px;
+    border-radius: 100%;
+}
+
+.infoPerfil {
+    width: 100%;
+    height: 330px;
+}
+
+.containerInfoPerfil {
+    width: 100%;
+    height: 110px;
+    padding: 0px 10px 0px 10px;
+}
+
+.containerInfoPerfil p {
+    height: 40px;
+    color: var(--cor_cinza_fonte_escrita);
+}
+
+.containerInfoPerfil div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerInfoPerfil div p {
+    display: flex;
+    height: 70px;
+    color: black;
+}
+
+.containerInfoPerfil img {
+    width: 25px;
+    height: 25px;
 }
 
 /* Header */
@@ -556,17 +626,26 @@ header {
     display: flex;
     align-items: center;
     justify-content: end;
-    gap: 10px;
+    gap: 20px;
     width: 100%;
+    height: 100%;
 }
 
-.logos img {
+.logos div div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 35px;
-    height: 30px;
+    height: 35px;
     border-radius: 100%;
 }
 
-.logos div img:hover {
+.logos img {
+    width: 25px;
+    height: 20px;
+}
+
+.logos div div:hover {
     background-color: var(--cor_cinza_fonte);
 }
 
@@ -671,6 +750,11 @@ li:hover {
     height: 100%;
 }
 
+.divCloseNot img {
+    width: 20px;
+    height: 20px;
+}
+
 #ativarNot {
     font-weight: bolder;
     color: var(--verde_forte);
@@ -695,8 +779,8 @@ nav {
 }
 
 nav img {
-    width: 90%;
-    height: 80%;
+    width: 70%;
+    height: 60%;
 }
 
 .iconsNav {
@@ -717,10 +801,6 @@ nav img {
 }
 
 .iconsNav div:nth-child(-n+4):hover {
-    background-color: var(--cor_cinza_fonte);
-}
-
-.iconsNav div:nth-child(1) {
     background-color: var(--cor_cinza_fonte);
 }
 
@@ -766,8 +846,8 @@ div #ia:hover {
 }
 
 .configNav div img {
-    width: 85%;
-    height: 85%;
+    width: 65%;
+    height: 65%;
 }
 
 .configNav div:hover {
@@ -854,8 +934,71 @@ div #ia:hover {
     background-color: var(--fundo);
 }
 
-#telaInicial {
+#telaStatus {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    background-color: orange;
+}
+
+.headerTelaStatus {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 230px;
+    background-color: red;
+}
+
+.headerTelaStatus p:nth-child(2) {
+    background-color: orange;
+}
+
+.headerTelaStatus p:nth-child(3) {
+    background-color: rosybrown;
+}
+
+.headerTelaStatus img {
+    width: 100px;
+    height: 100px;
+}
+
+.footerTelaStatus {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    bottom: 20px;
+    width: 595px;
+    height: 70px;
+    background-color: purple;
+}
+
+.footerTelaStatus img {
+    width: 20px;
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+#telaCanais {
+    display: none;
+}
+
+#telaComunidades {
+    display: none;
+}
+
+#telaConfiguracoes {
+    display: none;
+}
+
+#telaPerfil {
+    display: none;
+}
+
+#telaInicial {
+    display: none;
     align-items: center;
     flex-direction: column;
     height: 450px;

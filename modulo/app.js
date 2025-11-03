@@ -8,11 +8,13 @@ const iconStatus = document.getElementById('status')
 const iconCanais = document.getElementById('canais')
 const iconComunidade = document.getElementById('comunidades')
 const iconConfig = document.getElementById('configuracoes')
+const iconPerfil = document.getElementById('perfil')
 const sectionConversas = document.getElementById('conversasSection')
 const sectionStatus = document.getElementById('statusSection')
 const sectionCanais = document.getElementById('canaisSection')
 const sectionComunidades = document.getElementById('comunidadesSection')
 const sectionConfig = document.getElementById('configuracoesSection')
+const sectionPerfil = document.getElementById('perfilSection')
 
 async function loadContacts() {
     let url = 'https://api-zapzap.onrender.com/v1/messages/11987876567'
@@ -131,6 +133,20 @@ function createMessages(message) {
 }
 
 iconContatos.addEventListener('click', () => {
+    if (sectionHigh == 'comunidades') {
+        iconComunidade.src = '../img/comunidade.png'
+
+    } else if (sectionHigh == 'status') {
+        iconStatus.src = '../img/status.png'
+
+    } else if (sectionHigh == 'canais') {
+        iconCanais.src = '../img/canais.png'
+
+    } else if (sectionHigh == 'configuracoes') {
+        iconConfig.src = '../img/config.png'
+
+    }
+
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
     sectionNone.style.display = 'none'
     sectionConversas.style.display = 'flex'
@@ -140,12 +156,27 @@ iconContatos.addEventListener('click', () => {
         const highDiv = document.getElementById(`${divIconHigh}`)
         const divIcon = document.getElementById('conversasDiv')
         divIcon.style.backgroundColor = '#d2d2d2'
-        highDiv.style.backgroundColor = '#f7f5f3'
+        iconContatos.src = '../img/conversasBlack.png'
+        highDiv.style.backgroundColor = ''
         divIconHigh = iconContatos.parentNode.id
     }
 })
 
 iconStatus.addEventListener('click', () => {
+    if (sectionHigh == 'conversas') {
+        iconContatos.src = '../img/conversas.png'
+
+    } else if (sectionHigh == 'comunidades') {
+        iconComunidade.src = '../img/comunidade.png'
+
+    } else if (sectionHigh == 'canais') {
+        iconCanais.src = '../img/canais.png'
+
+    } else if (sectionHigh == 'configuracoes') {
+        iconConfig.src = '../img/config.png'
+
+    }
+
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
     sectionNone.style.display = 'none'
     sectionStatus.style.display = 'flex'
@@ -155,12 +186,27 @@ iconStatus.addEventListener('click', () => {
         const highDiv = document.getElementById(`${divIconHigh}`)
         const divIcon = document.getElementById('statusDiv')
         divIcon.style.backgroundColor = '#d2d2d2'
-        highDiv.style.backgroundColor = '#f7f5f3'
+        iconStatus.src = '../img/statusBlack.png'
+        highDiv.style.backgroundColor = ''
         divIconHigh = iconStatus.parentNode.id
     }
 })
 
 iconCanais.addEventListener('click', () => {
+    if (sectionHigh == 'conversas') {
+        iconContatos.src = '../img/conversas.png'
+
+    } else if (sectionHigh == 'status') {
+        iconStatus.src = '../img/status.png'
+
+    } else if (sectionHigh == 'comunidades') {
+        iconComunidade.src = '../img/comunidade.png'
+
+    } else if (sectionHigh == 'configuracoes') {
+        iconConfig.src = '../img/config.png'
+
+    }
+
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
     sectionNone.style.display = 'none'
     sectionCanais.style.display = 'flex'
@@ -170,12 +216,27 @@ iconCanais.addEventListener('click', () => {
         const highDiv = document.getElementById(`${divIconHigh}`)
         const divIcon = document.getElementById('canaisDiv')
         divIcon.style.backgroundColor = '#d2d2d2'
-        highDiv.style.backgroundColor = '#f7f5f3'
+        iconCanais.src = '../img/canaisBlack.png'
+        highDiv.style.backgroundColor = ''
         divIconHigh = iconCanais.parentNode.id
     }
 })
 
 iconComunidade.addEventListener('click', () => {
+    if (sectionHigh == 'conversas') {
+        iconContatos.src = '../img/conversas.png'
+
+    } else if (sectionHigh == 'status') {
+        iconStatus.src = '../img/status.png'
+
+    } else if (sectionHigh == 'canais') {
+        iconCanais.src = '../img/canais.png'
+
+    } else if (sectionHigh == 'configuracoes') {
+        iconConfig.src = '../img/config.png'
+
+    }
+
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
     sectionNone.style.display = 'none'
     sectionComunidades.style.display = 'flex'
@@ -185,25 +246,74 @@ iconComunidade.addEventListener('click', () => {
         const highDiv = document.getElementById(`${divIconHigh}`)
         const divIcon = document.getElementById('comunidadesDiv')
         divIcon.style.backgroundColor = '#d2d2d2'
-        highDiv.style.backgroundColor = '#f7f5f3'
+        iconComunidade.src = '../img/comunidadeBlack.png'
+        highDiv.style.backgroundColor = ''
         divIconHigh = iconComunidade.parentNode.id
     }
 })
 
 iconConfig.addEventListener('click', () => {
+    if (sectionHigh == 'conversas') {
+        iconContatos.src = '../img/conversas.png'
+
+    } else if (sectionHigh == 'status') {
+        iconStatus.src = '../img/status.png'
+
+    } else if (sectionHigh == 'canais') {
+        iconCanais.src = '../img/canais.png'
+
+    } else if (sectionHigh == 'comunidades') {
+        iconComunidade.src = '../img/comunidade.png'
+
+    }
+
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
     sectionNone.style.display = 'none'
     sectionConfig.style.display = 'flex'
     sectionHigh = event.currentTarget.id
 
-    if (divIconHigh != 4) {
+    if (divIconHigh != iconConfig.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
         const divIcon = document.getElementById('configuracoesDiv')
         divIcon.style.backgroundColor = '#d2d2d2'
-        highDiv.style.backgroundColor = '#f7f5f3'
+        iconConfig.src = '../img/configBlack.png'
+        highDiv.style.backgroundColor = ''
         divIconHigh = iconConfig.parentNode.id
     }
 })
 
+iconPerfil.addEventListener('click', () => {
+    if (sectionHigh == 'conversas') {
+        iconContatos.src = '../img/conversas.png'
+
+    } else if (sectionHigh == 'status') {
+        iconStatus.src = '../img/status.png'
+
+    } else if (sectionHigh == 'canais') {
+        iconCanais.src = '../img/canais.png'
+
+    } else if (sectionHigh == 'comunidades') {
+        iconComunidade.src = '../img/comunidade.png'
+
+    } else if (sectionHigh == 'configuracoes') {
+        iconConfig.src = '../img/config.png'
+    }
+
+    let sectionNone = document.getElementById(`${sectionHigh}Section`)
+    sectionNone.style.display = 'none'
+    sectionPerfil.style.display = 'flex'
+    sectionHigh = event.currentTarget.id
+
+    if (divIconHigh != iconPerfil.parentNode.id) {
+        const highDiv = document.getElementById(`${divIconHigh}`)
+        const divIcon = document.getElementById('perfilDiv')
+        divIcon.style.backgroundColor = '#d2d2d2'
+        highDiv.style.backgroundColor = ''
+        divIconHigh = iconPerfil.parentNode.id
+    }
+})
+
 divIconHigh = iconContatos.parentNode.id
+const firstDivHigh = document.getElementById(`${divIconHigh}`)
+firstDivHigh.style.backgroundColor = '#d2d2d2'
 //loadContacts()
