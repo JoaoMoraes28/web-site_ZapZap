@@ -2,8 +2,8 @@
 
 var fisrtCall = true
 var sectionHigh = 'conversas'
-var telaHigh = 'Inicial'
-var divIconHigh = null
+var telaHigh = 'inicial'
+var divIconHigh = 'conversasDiv'
 const iconContatos = document.getElementById('conversas')
 const iconStatus = document.getElementById('status')
 const iconCanais = document.getElementById('canais')
@@ -21,7 +21,6 @@ async function loadContacts() {
     let url = 'https://api-zapzap.onrender.com/v1/messages/11987876567'
     let response = await fetch(url)
 
-    let contacts = await response.json()
     createContacts(contacts.messages[0])
 }
 
@@ -31,6 +30,29 @@ async function getMessages(id) {
 
     let messages = await response.json()
     return messages
+}
+
+async function getDadaProfile(number) {
+    let url = '`https://api-zapzap.onrender.com/v1/message?user=11987876567&contact=${id}`'
+    let response = await fetch(url)
+
+    let profile = await response.json()
+    return profile
+}
+
+function buildProfile() {
+    let profile = getDadaProfile('12345678')
+    const imgStatus = document.getElementById('perfilStatusImg')
+    const nameConfig = document.getElementById('nomeConfig')
+    const imgProfile = document.getElementById('imgPerfilHeader')
+    const nameProfile = document.getElementById('nomePerfil')
+    const phone = document.getElementById('telefonePerfil')
+
+    imgStatus.src = 1
+    nameConfig.innerHTML = 1
+    imgProfile.src = 1
+    nameProfile.innerHTML = 1
+    phone.innerHTML = 1
 }
 
 function createContacts(contacts) {
@@ -73,7 +95,7 @@ function createContacts(contacts) {
 function addListener(contato) {
     contato.addEventListener('click', async () => {
         let id = String(event.currentTarget.id).split('/')
-        const sectionConversa = document.getElementById('conversa')
+        const sectionConversa = document.getElementById('conversasTela')
         const sectionMain = document.getElementById('sectionMain')
         const nomeMain = document.getElementById('nomeMain')
         const imgPerfil = document.getElementById('imgPerfilMain')
@@ -81,7 +103,7 @@ function addListener(contato) {
         if (fisrtCall) {
             const inputMain = document.getElementById('divInputMain')
             const headerMain = document.getElementById('headerMain')
-            const telaInicial = document.getElementById('telaInicial')
+            const telaInicial = document.getElementById('inicialTela')
 
             sectionMain.style.backgroundImage = 'url(./img/zapzap.jpg)'
             sectionConversa.style.justifyContent = 'start'
@@ -100,19 +122,18 @@ function addListener(contato) {
             sectionConversa.removeChild(sectionConversa.firstChild)
         }
 
-
         let messages = await getMessages(id[0])
         messages.message[0].messages[0].forEach(createMessages)
     })
 
-
 }
 
 function createMessages(message) {
-    const sectionConversa = document.getElementById('conversa')
+    const sectionConversa = document.getElementById('conversasTela')
     const divMessage = document.createElement('div')
     const spanMessage = document.createElement('span')
     const spanData = document.createElement('span')
+    sectionConversa.style.display = 'flex'
 
     sectionConversa.appendChild(divMessage)
     divMessage.append(spanMessage, spanData)
@@ -149,10 +170,22 @@ iconContatos.addEventListener('click', () => {
     }
 
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
+    const highTela = document.getElementById(`${telaHigh}Tela`)
+    highTela.style.display = 'none'
     sectionNone.style.display = 'none'
     sectionConversas.style.display = 'flex'
     sectionHigh = event.currentTarget.id
     telaHigh = event.currentTarget.id
+
+    const divMessages = document.getElementById('conversasTela')
+    const divInput = document.getElementById('divInputMain')
+    const divHeader = document.getElementById('headerMain')
+    const sectionMain = document.getElementById('sectionMain')
+
+    sectionMain.style.backgroundImage = 'url(./img/zapzap.jpg)'
+    divMessages.style.display = 'flex'
+    divInput.style.display = 'flex'
+    divHeader.style.display = 'flex'
 
     if (divIconHigh != iconContatos.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
@@ -180,10 +213,26 @@ iconStatus.addEventListener('click', () => {
     }
 
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
+    const highTela = document.getElementById(`${telaHigh}Tela`)
+    let telastatus = document.getElementById('statusTela')
+    highTela.style.display = 'none'
+    telastatus.style.display = 'flex'
     sectionNone.style.display = 'none'
     sectionStatus.style.display = 'flex'
     sectionHigh = event.currentTarget.id
     telaHigh = event.currentTarget.id
+
+    if (divIconHigh == 'conversasDiv') {
+        const divMessages = document.getElementById('conversasTela')
+        const divInput = document.getElementById('divInputMain')
+        const divHeader = document.getElementById('headerMain')
+        const sectionMain = document.getElementById('sectionMain')
+
+        sectionMain.style.backgroundImage = 'none'
+        divMessages.style.display = 'none'
+        divInput.style.display = 'none'
+        divHeader.style.display = 'none'
+    }
 
     if (divIconHigh != iconStatus.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
@@ -211,10 +260,26 @@ iconCanais.addEventListener('click', () => {
     }
 
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
+    const highTela = document.getElementById(`${telaHigh}Tela`)
+    let telaCanais = document.getElementById('canaisTela')
+    highTela.style.display = 'none'
+    telaCanais.style.display = 'flex'
     sectionNone.style.display = 'none'
     sectionCanais.style.display = 'flex'
     sectionHigh = event.currentTarget.id
     telaHigh = event.currentTarget.id
+
+    if (divIconHigh == 'conversasDiv') {
+        const divMessages = document.getElementById('conversasTela')
+        const divInput = document.getElementById('divInputMain')
+        const divHeader = document.getElementById('headerMain')
+        const sectionMain = document.getElementById('sectionMain')
+
+        sectionMain.style.backgroundImage = 'none'
+        divMessages.style.display = 'none'
+        divInput.style.display = 'none'
+        divHeader.style.display = 'none'
+    }
 
     if (divIconHigh != iconCanais.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
@@ -242,10 +307,26 @@ iconComunidade.addEventListener('click', () => {
     }
 
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
+    const highTela = document.getElementById(`${telaHigh}Tela`)
+    let telaComunidade = document.getElementById('comunidadesTela')
+    highTela.style.display = 'none'
+    telaComunidade.style.display = 'flex'
     sectionNone.style.display = 'none'
     sectionComunidades.style.display = 'flex'
     sectionHigh = event.currentTarget.id
     telaHigh = event.currentTarget.id
+
+    if (divIconHigh == 'conversasDiv') {
+        const divMessages = document.getElementById('conversasTela')
+        const divInput = document.getElementById('divInputMain')
+        const divHeader = document.getElementById('headerMain')
+        const sectionMain = document.getElementById('sectionMain')
+
+        sectionMain.style.backgroundImage = 'none'
+        divMessages.style.display = 'none'
+        divInput.style.display = 'none'
+        divHeader.style.display = 'none'
+    }
 
     if (divIconHigh != iconComunidade.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
@@ -273,10 +354,26 @@ iconConfig.addEventListener('click', () => {
     }
 
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
+    const highTela = document.getElementById(`${telaHigh}Tela`)
+    let telaConfig = document.getElementById('configuracoesTela')
+    highTela.style.display = 'none'
+    telaConfig.style.display = 'flex'
     sectionNone.style.display = 'none'
     sectionConfig.style.display = 'flex'
     sectionHigh = event.currentTarget.id
     telaHigh = event.currentTarget.id
+
+    if (divIconHigh == 'conversasDiv') {
+        const divMessages = document.getElementById('conversasTela')
+        const divInput = document.getElementById('divInputMain')
+        const divHeader = document.getElementById('headerMain')
+        const sectionMain = document.getElementById('sectionMain')
+
+        sectionMain.style.backgroundImage = 'none'
+        divMessages.style.display = 'none'
+        divInput.style.display = 'none'
+        divHeader.style.display = 'none'
+    }
 
     if (divIconHigh != iconConfig.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
@@ -306,14 +403,26 @@ iconPerfil.addEventListener('click', () => {
     }
 
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
-    const highTela = document.getElementById(`tela${telaHigh}`)
-    let telaPerfil = document.getElementById('telaPerfil')
+    const highTela = document.getElementById(`${telaHigh}Tela`)
+    let telaPerfil = document.getElementById('perfilTela')
     highTela.style.display = 'none'
     telaPerfil.style.display = 'flex'
     sectionNone.style.display = 'none'
     sectionPerfil.style.display = 'flex'
     sectionHigh = event.currentTarget.id
     telaHigh = event.currentTarget.id
+
+    if (divIconHigh == 'conversasDiv') {
+        const divMessages = document.getElementById('conversasTela')
+        const divInput = document.getElementById('divInputMain')
+        const divHeader = document.getElementById('headerMain')
+        const sectionMain = document.getElementById('sectionMain')
+
+        sectionMain.style.backgroundImage = 'none'
+        divMessages.style.display = 'none'
+        divInput.style.display = 'none'
+        divHeader.style.display = 'none'
+    }
 
     if (divIconHigh != iconPerfil.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
@@ -324,7 +433,6 @@ iconPerfil.addEventListener('click', () => {
     }
 })
 
-divIconHigh = iconContatos.parentNode.id
 const firstDivHigh = document.getElementById(`${divIconHigh}`)
 firstDivHigh.style.backgroundColor = '#d2d2d2'
 //loadContacts()

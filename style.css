@@ -167,6 +167,7 @@ body {
 
 .footerStatus {
     display: flex;
+    justify-content: center;
     height: 30px;
     text-align: start;
 }
@@ -185,7 +186,7 @@ body {
 }
 
 .footerStatus p {
-    width: 95%;
+    width: 75%;
     height: 100%;
     font-size: 12px;
     padding-top: 5px;
@@ -502,7 +503,7 @@ body {
     align-items: center;
     width: 100%;
     height: 80px;
-    gap: 10px;
+    gap: 20px;
     border-radius: 10px;
 }
 
@@ -787,7 +788,7 @@ nav img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     height: 40%;
 }
 
@@ -869,6 +870,7 @@ div #ia:hover {
     border-width: 1.5px;
     border-color: rgb(143, 143, 143);
     background-color: white;
+    overflow-y: scroll;
 }
 
 .contato {
@@ -1060,7 +1062,7 @@ div #ia:hover {
     margin-bottom: 5px;
 }
 
-#configuracoesPerfil {
+#configuracoesTela {
     display: none;
     justify-content: center;
     align-items: center;
@@ -1068,7 +1070,7 @@ div #ia:hover {
     height: 100%;
 }
 
-#configuracoesPerfil div {
+#configuracoesTela div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1078,12 +1080,12 @@ div #ia:hover {
     gap: 15px;
 }
 
-#configuracoesPerfil img {
+#configuracoesTela img {
     width: 70px;
     height: 70px;
 }
 
-#configuracoesPerfil div p {
+#configuracoesTela div p {
     font-size: 20px
 }
 
@@ -1114,7 +1116,7 @@ div #ia:hover {
     font-size: 20px;
 }
 
-#telaInicial {
+#inicialTela {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -1134,17 +1136,18 @@ div #ia:hover {
     height: 210px;
 }
 
-#telaInicial h2 {
+#inicialTela h2 {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 20%;
     font-weight: lighter;
+    text-align: center;
     font-size: 35px;
 }
 
-#telaInicial p {
+#inicialTela p {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1154,7 +1157,7 @@ div #ia:hover {
     font-size: 16px;
 }
 
-#telaInicial button {
+#inicialTela button {
     all: unset;
     display: flex;
     justify-content: center;
@@ -1167,7 +1170,7 @@ div #ia:hover {
     border-radius: 20px;
 }
 
-#telaInicial button:hover {
+#inicialTela button:hover {
     transition: 0.2s ease-in-out;
     transform: scale(1.02);
     background-color: #188f52;
@@ -1242,6 +1245,18 @@ div #ia:hover {
     gap: 15px;
     width: 100%;
     height: calc(100% - 120px);
+}
+
+#conversasTela {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 40px 0px 40px;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
 }
 
 #divInputMain {
