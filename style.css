@@ -934,45 +934,44 @@ div #ia:hover {
     background-color: var(--fundo);
 }
 
-#telaStatus {
-    display: flex;
+#statusTela {
+    display: none;
     flex-direction: column;
     width: 100%;
-    height: 300px;
-    background-color: orange;
+    height: 100%;
 }
 
 .headerTelaStatus {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
-    height: 230px;
-    background-color: red;
+    gap: 20px;
+    width: 100%;
+    height: 90%;
 }
 
 .headerTelaStatus p:nth-child(2) {
-    background-color: orange;
+    font-size: 18px;
 }
 
 .headerTelaStatus p:nth-child(3) {
-    background-color: rosybrown;
+    color: var(--cor_cinza_fonte_escrita);
 }
 
 .headerTelaStatus img {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
 }
 
 .footerTelaStatus {
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
-    bottom: 20px;
-    width: 595px;
-    height: 70px;
-    background-color: purple;
+    width: 100%;
+    height: 10%;
+    color: var(--cor_cinza_fonte_escrita);
 }
 
 .footerTelaStatus img {
@@ -981,24 +980,142 @@ div #ia:hover {
     margin-bottom: 5px;
 }
 
-#telaCanais {
+#canaisTela {
     display: none;
+    width: 100%;
+    height: 100%;
 }
 
-#telaComunidades {
-    display: none;
+#canaisTela div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 15px;
 }
 
-#telaConfiguracoes {
-    display: none;
+#canaisTela div img {
+    width: 60px;
+    height: 60px;
 }
 
-#telaPerfil {
+#canaisTela div p:nth-child(2) {
+    font-size: 18px;
+}
+
+#canaisTela div p:nth-child(3) {
+    text-align: center;
+    color: var(--cor_cinza_fonte_escrita);
+}
+
+#comunidadesTela {
     display: none;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.headerTelaComunidades {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+    gap: 15px;
+    text-align: center;
+}
+
+.headerTelaComunidades p:nth-child(2) {
+    font-size: 18px;
+}
+
+.headerTelaComunidades p:nth-child(3) {
+    color: var(--cor_cinza_fonte_escrita);
+}
+
+.headerTelaComunidades img {
+    width: 60px;
+    height: 60px;
+}
+
+.footerTelaComunidades {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    height: 10%;
+}
+
+.footerTelaComunidades p {
+    color: var(--cor_cinza_fonte_escrita);
+}
+
+.footerTelaComunidades img {
+    width: 20px;
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+#configuracoesPerfil {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#configuracoesPerfil div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 15px;
+}
+
+#configuracoesPerfil img {
+    width: 70px;
+    height: 70px;
+}
+
+#configuracoesPerfil div p {
+    font-size: 20px
+}
+
+#perfilTela {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+#perfilTela div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+}
+
+#perfilTela img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--cor_cinza_fonte_escrita);
+}
+
+#perfilTela p {
+    font-size: 20px;
 }
 
 #telaInicial {
-    display: none;
+    display: flex;
     align-items: center;
     flex-direction: column;
     height: 450px;

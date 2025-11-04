@@ -2,6 +2,7 @@
 
 var fisrtCall = true
 var sectionHigh = 'conversas'
+var telaHigh = 'Inicial'
 var divIconHigh = null
 const iconContatos = document.getElementById('conversas')
 const iconStatus = document.getElementById('status')
@@ -151,6 +152,7 @@ iconContatos.addEventListener('click', () => {
     sectionNone.style.display = 'none'
     sectionConversas.style.display = 'flex'
     sectionHigh = event.currentTarget.id
+    telaHigh = event.currentTarget.id
 
     if (divIconHigh != iconContatos.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
@@ -181,6 +183,7 @@ iconStatus.addEventListener('click', () => {
     sectionNone.style.display = 'none'
     sectionStatus.style.display = 'flex'
     sectionHigh = event.currentTarget.id
+    telaHigh = event.currentTarget.id
 
     if (divIconHigh != iconStatus.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
@@ -211,6 +214,7 @@ iconCanais.addEventListener('click', () => {
     sectionNone.style.display = 'none'
     sectionCanais.style.display = 'flex'
     sectionHigh = event.currentTarget.id
+    telaHigh = event.currentTarget.id
 
     if (divIconHigh != iconCanais.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
@@ -241,6 +245,7 @@ iconComunidade.addEventListener('click', () => {
     sectionNone.style.display = 'none'
     sectionComunidades.style.display = 'flex'
     sectionHigh = event.currentTarget.id
+    telaHigh = event.currentTarget.id
 
     if (divIconHigh != iconComunidade.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
@@ -271,6 +276,7 @@ iconConfig.addEventListener('click', () => {
     sectionNone.style.display = 'none'
     sectionConfig.style.display = 'flex'
     sectionHigh = event.currentTarget.id
+    telaHigh = event.currentTarget.id
 
     if (divIconHigh != iconConfig.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
@@ -300,9 +306,14 @@ iconPerfil.addEventListener('click', () => {
     }
 
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
+    const highTela = document.getElementById(`tela${telaHigh}`)
+    let telaPerfil = document.getElementById('telaPerfil')
+    highTela.style.display = 'none'
+    telaPerfil.style.display = 'flex'
     sectionNone.style.display = 'none'
     sectionPerfil.style.display = 'flex'
     sectionHigh = event.currentTarget.id
+    telaHigh = event.currentTarget.id
 
     if (divIconHigh != iconPerfil.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
