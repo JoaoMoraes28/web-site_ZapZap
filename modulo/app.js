@@ -1,15 +1,19 @@
 'use strict'
 
+//Variáveis responsáveis por guardar qual section e ícone está em exibição no momento
 var fisrtCall = true
 var sectionHigh = 'conversas'
 var telaHigh = 'inicial'
 var divIconHigh = 'conversasDiv'
+var firstContactEvent = true
+
 const iconContatos = document.getElementById('conversas')
 const iconStatus = document.getElementById('status')
 const iconCanais = document.getElementById('canais')
 const iconComunidade = document.getElementById('comunidades')
 const iconConfig = document.getElementById('configuracoes')
 const iconPerfil = document.getElementById('perfil')
+const iconClose = document.getElementById('closeNot')
 const sectionConversas = document.getElementById('conversasSection')
 const sectionStatus = document.getElementById('statusSection')
 const sectionCanais = document.getElementById('canaisSection')
@@ -17,13 +21,16 @@ const sectionComunidades = document.getElementById('comunidadesSection')
 const sectionConfig = document.getElementById('configuracoesSection')
 const sectionPerfil = document.getElementById('perfilSection')
 
+//Retorna todos os contatos
 async function loadContacts() {
     let url = 'https://api-zapzap.onrender.com/v1/messages/11987876567'
     let response = await fetch(url)
 
+    let contacts = await response.json()
     createContacts(contacts.messages[0])
 }
 
+//Retorna todas mensagens
 async function getMessages(id) {
     let url = `https://api-zapzap.onrender.com/v1/message?user=11987876567&contact=${id}`
     let response = await fetch(url)
@@ -32,29 +39,32 @@ async function getMessages(id) {
     return messages
 }
 
+//Retorna os dados do usuário
 async function getDadaProfile(number) {
-    let url = '`https://api-zapzap.onrender.com/v1/message?user=11987876567&contact=${id}`'
+    let url = `https://api-zapzap.onrender.com/v1/user/11987876567`
     let response = await fetch(url)
 
     let profile = await response.json()
     return profile
 }
 
-function buildProfile() {
-    let profile = getDadaProfile('12345678')
+//Distribui os dados pelo perfil do usuário
+async function buildProfile() {
+    let profile = await getDadaProfile('12345678')
     const imgStatus = document.getElementById('perfilStatusImg')
     const nameConfig = document.getElementById('nomeConfig')
     const imgProfile = document.getElementById('imgPerfilHeader')
     const nameProfile = document.getElementById('nomePerfil')
     const phone = document.getElementById('telefonePerfil')
 
-    imgStatus.src = 1
-    nameConfig.innerHTML = 1
-    imgProfile.src = 1
-    nameProfile.innerHTML = 1
-    phone.innerHTML = 1
+    // imgStatus.src = profile.usuario[0]["profile-image"]
+    nameConfig.innerHTML = profile.usuario[0].account
+    // imgProfile.src = profile.usuario[0]["profile-image"]
+    nameProfile.innerHTML = profile.usuario[0].account
+    phone.innerHTML = profile.usuario[0].number
 }
 
+//Criação dos cards de contato
 function createContacts(contacts) {
     let contatos = []
     contacts.forEach((contact) => {
@@ -92,6 +102,7 @@ function createContacts(contacts) {
     contatos.forEach(addListener)
 }
 
+//Adiciona o listener em cada card de contato
 function addListener(contato) {
     contato.addEventListener('click', async () => {
         let id = String(event.currentTarget.id).split('/')
@@ -122,12 +133,14 @@ function addListener(contato) {
             sectionConversa.removeChild(sectionConversa.firstChild)
         }
 
+        firstContactEvent = false
         let messages = await getMessages(id[0])
         messages.message[0].messages[0].forEach(createMessages)
     })
 
 }
 
+//Cria as divs de cada mensagem
 function createMessages(message) {
     const sectionConversa = document.getElementById('conversasTela')
     const divMessage = document.createElement('div')
@@ -154,6 +167,8 @@ function createMessages(message) {
     }
 }
 
+//Código para interação entre os ícones na barra de navegação
+//Listener responsável por exibir tela e section selecionado e ocultar as anteriores
 iconContatos.addEventListener('click', () => {
     if (sectionHigh == 'comunidades') {
         iconComunidade.src = '../img/comunidade.png'
@@ -171,21 +186,26 @@ iconContatos.addEventListener('click', () => {
 
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
     const highTela = document.getElementById(`${telaHigh}Tela`)
+    const telaInicial = document.getElementById('inicialTela')
     highTela.style.display = 'none'
+    telaInicial.style.display = 'flex'
     sectionNone.style.display = 'none'
     sectionConversas.style.display = 'flex'
     sectionHigh = event.currentTarget.id
     telaHigh = event.currentTarget.id
 
-    const divMessages = document.getElementById('conversasTela')
-    const divInput = document.getElementById('divInputMain')
-    const divHeader = document.getElementById('headerMain')
-    const sectionMain = document.getElementById('sectionMain')
+    if (!firstContactEvent) {
+        const divMessages = document.getElementById('conversasTela')
+        const divInput = document.getElementById('divInputMain')
+        const divHeader = document.getElementById('headerMain')
+        const sectionMain = document.getElementById('sectionMain')
+        telaInicial.style.display = 'none'
 
-    sectionMain.style.backgroundImage = 'url(./img/zapzap.jpg)'
-    divMessages.style.display = 'flex'
-    divInput.style.display = 'flex'
-    divHeader.style.display = 'flex'
+        sectionMain.style.backgroundImage = 'url(./img/zapzap.jpg)'
+        divMessages.style.display = 'flex'
+        divInput.style.display = 'flex'
+        divHeader.style.display = 'flex'
+    }
 
     if (divIconHigh != iconContatos.parentNode.id) {
         const highDiv = document.getElementById(`${divIconHigh}`)
@@ -227,7 +247,9 @@ iconStatus.addEventListener('click', () => {
         const divInput = document.getElementById('divInputMain')
         const divHeader = document.getElementById('headerMain')
         const sectionMain = document.getElementById('sectionMain')
+        const telaInicial = document.getElementById('inicialTela')
 
+        telaInicial.style.display = 'none'
         sectionMain.style.backgroundImage = 'none'
         divMessages.style.display = 'none'
         divInput.style.display = 'none'
@@ -274,7 +296,9 @@ iconCanais.addEventListener('click', () => {
         const divInput = document.getElementById('divInputMain')
         const divHeader = document.getElementById('headerMain')
         const sectionMain = document.getElementById('sectionMain')
+        const telaInicial = document.getElementById('inicialTela')
 
+        telaInicial.style.display = 'none'
         sectionMain.style.backgroundImage = 'none'
         divMessages.style.display = 'none'
         divInput.style.display = 'none'
@@ -321,7 +345,9 @@ iconComunidade.addEventListener('click', () => {
         const divInput = document.getElementById('divInputMain')
         const divHeader = document.getElementById('headerMain')
         const sectionMain = document.getElementById('sectionMain')
+        const telaInicial = document.getElementById('inicialTela')
 
+        telaInicial.style.display = 'none'
         sectionMain.style.backgroundImage = 'none'
         divMessages.style.display = 'none'
         divInput.style.display = 'none'
@@ -368,7 +394,9 @@ iconConfig.addEventListener('click', () => {
         const divInput = document.getElementById('divInputMain')
         const divHeader = document.getElementById('headerMain')
         const sectionMain = document.getElementById('sectionMain')
+        const telaInicial = document.getElementById('inicialTela')
 
+        telaInicial.style.display = 'none'
         sectionMain.style.backgroundImage = 'none'
         divMessages.style.display = 'none'
         divInput.style.display = 'none'
@@ -417,7 +445,9 @@ iconPerfil.addEventListener('click', () => {
         const divInput = document.getElementById('divInputMain')
         const divHeader = document.getElementById('headerMain')
         const sectionMain = document.getElementById('sectionMain')
+        const telaInicial = document.getElementById('inicialTela')
 
+        telaInicial.style.display = 'none'
         sectionMain.style.backgroundImage = 'none'
         divMessages.style.display = 'none'
         divInput.style.display = 'none'
@@ -433,6 +463,15 @@ iconPerfil.addEventListener('click', () => {
     }
 })
 
+iconClose.addEventListener('click', () => {
+    const divNotification = document.getElementsByClassName('notificacoesDes')
+    sectionConversas.style.height = 'calc(100% + 62.5px)'
+    sectionConversas.style.marginTop = '-62.5px'
+    divNotification[0].style.display = 'none'
+})
+
+//Define a cor de fundo para o ícone de mensagem
 const firstDivHigh = document.getElementById(`${divIconHigh}`)
 firstDivHigh.style.backgroundColor = '#d2d2d2'
-//loadContacts()
+buildProfile()
+loadContacts()

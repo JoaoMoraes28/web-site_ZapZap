@@ -36,6 +36,8 @@ body {
     grid-template-columns: 75px minmax(320px, 30%) minmax(570px, calc(70% - 75px));
 }
 
+/* Section ocultas */
+/* Section da aba de status */
 #statusSection {
     position: absolute;
     display: none;
@@ -114,6 +116,7 @@ body {
     color: var(--cor_cinza_fonte_escrita);
 }
 
+/* Section da aba de Perfil */
 #perfilStatusImg {
     width: 40px;
     height: 40px;
@@ -202,7 +205,7 @@ body {
     text-decoration: underline;
 }
 
-
+/* Section da aba de Canais */
 #canaisSection {
     position: absolute;
     display: none;
@@ -284,6 +287,7 @@ body {
     background-color: #178b4f;
 }
 
+/* Section da aba de Comunidades */
 #comunidadesSection {
     position: absolute;
     display: none;
@@ -389,6 +393,7 @@ body {
     transform: scale(1.05);
 }
 
+/* Section da aba de Configurações */
 #configuracoesSection {
     position: absolute;
     display: none;
@@ -491,11 +496,12 @@ body {
     flex-direction: column;
     gap: 5px;
     width: 90%;
-    height: 640px;
+    height: calc(100% - 275px);
     padding: 10px 0px 10px 0px;
     border-bottom-style: solid;
     border-width: 1px;
     border-color: var(--cor_cinza_fonte);
+    overflow-y: visible;
 }
 
 .configCard {
@@ -503,6 +509,7 @@ body {
     align-items: center;
     width: 100%;
     height: 80px;
+    min-height: 80px;
     gap: 20px;
     border-radius: 10px;
 }
@@ -533,6 +540,7 @@ body {
     color: red;
 }
 
+/* Section da aba de Perfil */
 #perfilSection {
     position: absolute;
     display: none;
@@ -608,8 +616,8 @@ body {
 header {
     grid-area: e2;
     width: 100%;
-    z-index: 20;
     height: 100%;
+    z-index: 20;
     background-color: white;
     border-right-style: solid;
     border-width: 1.5px;
@@ -623,7 +631,7 @@ header {
     height: 25%;
 }
 
-.logos div {
+.containerIconLogos{
     display: flex;
     align-items: center;
     justify-content: end;
@@ -632,27 +640,8 @@ header {
     height: 100%;
 }
 
-.logos div div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-}
-
-.logos img {
-    width: 25px;
-    height: 20px;
-}
-
-.logos div div:hover {
-    background-color: var(--cor_cinza_fonte);
-}
-
 #logo {
     width: 150px;
-    border-radius: 0px;
 }
 
 .containerInputHeader {
@@ -779,35 +768,12 @@ nav {
     border-color: rgb(143, 143, 143);
 }
 
-nav img {
-    width: 70%;
-    height: 60%;
-}
-
 .iconsNav {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
     height: 40%;
-}
-
-.iconsNav div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-}
-
-.iconsNav div:nth-child(-n+4):hover {
-    background-color: var(--cor_cinza_fonte);
-}
-
-div #ia:hover {
-    background-color: var(--cor_cinza_fonte);
-    border-radius: 100%;
 }
 
 .iconsNav div:nth-child(5) {
@@ -841,18 +807,14 @@ div #ia:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
 }
 
 .configNav div img {
     width: 65%;
     height: 65%;
-}
-
-.configNav div:hover {
-    background-color: var(--cor_cinza_fonte);
 }
 
 /* Section Conversas */
@@ -878,6 +840,7 @@ div #ia:hover {
     align-items: center;
     width: 95%;
     height: 80px;
+    min-height: 80px;
     border-radius: 15px;
 }
 
@@ -927,7 +890,7 @@ div #ia:hover {
     font-size: 14px;
 }
 
-/* Section Main */
+/* Section Main (Contato selecionado) */
 #sectionMain {
     grid-area: e4;
     width: 100%;
@@ -936,6 +899,8 @@ div #ia:hover {
     background-color: var(--fundo);
 }
 
+/* Telas de background */
+/* Tela de Status */
 #statusTela {
     display: none;
     flex-direction: column;
@@ -988,6 +953,7 @@ div #ia:hover {
     height: 100%;
 }
 
+/* Tela de Canais */
 #canaisTela div {
     display: flex;
     flex-direction: column;
@@ -1012,6 +978,7 @@ div #ia:hover {
     color: var(--cor_cinza_fonte_escrita);
 }
 
+/* Tela de Comunidades */
 #comunidadesTela {
     display: none;
     flex-direction: column;
@@ -1062,6 +1029,7 @@ div #ia:hover {
     margin-bottom: 5px;
 }
 
+/* Tela de Configurações */
 #configuracoesTela {
     display: none;
     justify-content: center;
@@ -1089,6 +1057,7 @@ div #ia:hover {
     font-size: 20px
 }
 
+/* Tela de Perfil */
 #perfilTela {
     display: none;
     width: 100%;
@@ -1116,6 +1085,7 @@ div #ia:hover {
     font-size: 20px;
 }
 
+/* Primeira tela que aparece ao iniciar o web-site */
 #inicialTela {
     display: flex;
     align-items: center;
@@ -1176,6 +1146,7 @@ div #ia:hover {
     background-color: #188f52;
 }
 
+/* Header da Section de contato selecionado */
 #headerMain {
     display: none;
     width: 100%;
@@ -1236,6 +1207,7 @@ div #ia:hover {
     height: 25px;
 }
 
+/* Section que armazena todas as telas */
 #conversa {
     display: flex;
     flex-direction: column;
@@ -1247,6 +1219,7 @@ div #ia:hover {
     height: calc(100% - 120px);
 }
 
+/* Tela que exibe as mensagens de cada contato */
 #conversasTela {
     display: none;
     flex-direction: column;
@@ -1256,9 +1229,24 @@ div #ia:hover {
     gap: 15px;
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
+#conversasTela::-webkit-scrollbar {
+    width: 10px;
+}
+
+#conversasTela::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+}
+
+#conversasTela::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.205);
+}
+
+/* Div que contém o input da tela de messages */
 #divInputMain {
     display: none;
     justify-content: center;
@@ -1318,7 +1306,7 @@ div #ia:hover {
     height: 30px;
 }
 
-
+/* Estilização das mensagens do remetende */
 .divMensagemMe {
     display: flex;
     justify-content: end;
@@ -1349,8 +1337,7 @@ div #ia:hover {
     background-color: var(--verde_claro);
 }
 
-
-
+/* Estilização das mensagens do destinatário */
 .divMensagemContato {
     display: flex;
     width: 100%;
@@ -1378,4 +1365,22 @@ div #ia:hover {
     padding: 3px;
     width: 50px;
     background-color: white;
+}
+
+.containerIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+}
+
+.containerIcon img {
+    width: 23px;
+    height: 23px;
+}
+
+.containerIcon:hover {
+    background-color: var(--cor_cinza_fonte);
 }
