@@ -21,10 +21,15 @@ const sectionComunidades = document.getElementById('comunidadesSection')
 const sectionConfig = document.getElementById('configuracoesSection')
 const sectionPerfil = document.getElementById('perfilSection')
 const containerMicrophone = document.getElementById('containerMichophone')
+const iconLogout = document.getElementById('logout')
+
+//Var para extrair dados da url
+var urlSearch = new URLSearchParams(location.search)
+var numberUser = urlSearch.get('number')
 
 //Retorna todos os contatos
 async function loadContacts() {
-    let url = 'https://api-zapzap.onrender.com/v1/messages/11987876567'
+    let url = `https://api-zapzap.onrender.com/v1/messages/${numberUser}`
     let response = await fetch(url)
 
     let contacts = await response.json()
@@ -33,7 +38,7 @@ async function loadContacts() {
 
 //Retorna todas mensagens
 async function getMessages(id) {
-    let url = `https://api-zapzap.onrender.com/v1/message?user=11987876567&contact=${id}`
+    let url = `https://api-zapzap.onrender.com/v1/message?user=${numberUser}&contact=${id}`
     let response = await fetch(url)
 
     let messages = await response.json()
@@ -41,8 +46,8 @@ async function getMessages(id) {
 }
 
 //Retorna os dados do usuário
-async function getDadaProfile(number) {
-    let url = `https://api-zapzap.onrender.com/v1/user/11987876567`
+async function getDadaProfile() {
+    let url = `https://api-zapzap.onrender.com/v1/user/${numberUser}`
     let response = await fetch(url)
 
     let profile = await response.json()
@@ -51,7 +56,7 @@ async function getDadaProfile(number) {
 
 //Distribui os dados pelo perfil do usuário
 async function buildProfile() {
-    let profile = await getDadaProfile('12345678')
+    let profile = await getDadaProfile()
     const imgNav = document.getElementById('perfil')
     const imgStatus = document.getElementById('perfilStatusImg')
     const imgConfig = document.getElementById('perfilConfigImg')
@@ -467,6 +472,10 @@ iconPerfil.addEventListener('click', () => {
         highDiv.style.backgroundColor = ''
         divIconHigh = iconPerfil.parentNode.id
     }
+})
+
+iconLogout.addEventListener('click', () => {
+    
 })
 
 iconClose.addEventListener('click', () => {
