@@ -624,6 +624,24 @@ header {
     border-color: rgb(143, 143, 143);
 }
 
+.containerIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+}
+
+.containerIcon img {
+    width: 23px;
+    height: 23px;
+}
+
+.containerIcon:hover {
+    background-color: var(--cor_cinza_fonte);
+}
+
 .logos {
     display: flex;
     align-items: center;
@@ -631,7 +649,7 @@ header {
     height: 25%;
 }
 
-.containerIconLogos{
+.containerIconLogos {
     display: flex;
     align-items: center;
     justify-content: end;
@@ -815,6 +833,10 @@ nav {
 .configNav div img {
     width: 65%;
     height: 65%;
+}
+
+#perfil {
+    border-radius: 100%;
 }
 
 /* Section Conversas */
@@ -1151,6 +1173,7 @@ nav {
     display: none;
     width: 100%;
     height: 60px;
+    gap: 10px;
     background-color: white;
 }
 
@@ -1158,7 +1181,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 6%;
+    width: calc(10% - 10px);
 }
 
 #imgPerfilMain {
@@ -1180,31 +1203,26 @@ nav {
     flex-direction: column;
     gap: 5px;
     padding-top: 10px;
-    width: 49%;
+    width: 45%;
 }
 
 .iconsHeaderMain {
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
     padding-right: 30px;
     width: 45%;
 }
 
-.iconsHeaderMain img {
-    width: 25px;
-    height: 25px;
+.iconsHeaderMain .containerIcon:nth-child(1) img {
+    width: 30px;
+    height: 15px;
 }
 
-.iconsHeaderMain img:hover {
-    border-radius: 40px;
-    background-color: var(--fundo);
-}
-
-.iconsHeaderMain :nth-child(1) {
-    width: 50px;
-    height: 25px;
+.iconsHeaderMain .containerIcon:nth-child(3) img {
+    width: 20px;
+    height: 20px;
 }
 
 /* Section que armazena todas as telas */
@@ -1254,15 +1272,15 @@ nav {
     height: 60px;
 }
 
+#divInputMain .plusSticker img {
+    width: 20px;
+    height: 20px;
+}
+
 .containerInput {
     display: flex;
     width: 90%;
     height: 85%;
-}
-
-.containerInput img {
-    width: 20px;
-    height: 20px;
 }
 
 .inputMain {
@@ -1282,8 +1300,9 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 8%;
-    padding: 10px;
+    width: 85px;
+    padding: 7px;
+    gap: 5px;
     justify-content: space-between;
     background-color: white;
     border-top-left-radius: 20px;
@@ -1301,9 +1320,9 @@ nav {
     border-top-right-radius: 20px;
 }
 
-.voz img {
-    width: 30px;
-    height: 30px;
+#michophone {
+    width: 25px;
+    height: 25px;  
 }
 
 /* Estilização das mensagens do remetende */
@@ -1365,22 +1384,4 @@ nav {
     padding: 3px;
     width: 50px;
     background-color: white;
-}
-
-.containerIcon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-}
-
-.containerIcon img {
-    width: 23px;
-    height: 23px;
-}
-
-.containerIcon:hover {
-    background-color: var(--cor_cinza_fonte);
 }

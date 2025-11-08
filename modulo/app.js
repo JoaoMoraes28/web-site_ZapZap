@@ -20,6 +20,7 @@ const sectionCanais = document.getElementById('canaisSection')
 const sectionComunidades = document.getElementById('comunidadesSection')
 const sectionConfig = document.getElementById('configuracoesSection')
 const sectionPerfil = document.getElementById('perfilSection')
+const containerMicrophone = document.getElementById('containerMichophone')
 
 //Retorna todos os contatos
 async function loadContacts() {
@@ -51,15 +52,19 @@ async function getDadaProfile(number) {
 //Distribui os dados pelo perfil do usuário
 async function buildProfile() {
     let profile = await getDadaProfile('12345678')
+    const imgNav = document.getElementById('perfil')
     const imgStatus = document.getElementById('perfilStatusImg')
+    const imgConfig = document.getElementById('perfilConfigImg')
     const nameConfig = document.getElementById('nomeConfig')
     const imgProfile = document.getElementById('imgPerfilHeader')
     const nameProfile = document.getElementById('nomePerfil')
     const phone = document.getElementById('telefonePerfil')
 
-    // imgStatus.src = profile.usuario[0]["profile-image"]
+    imgNav.src = profile.usuario[0]["profile-image"]
+    imgStatus.src = profile.usuario[0]["profile-image"]
+    imgConfig.src = profile.usuario[0]["profile-image"]
     nameConfig.innerHTML = profile.usuario[0].account
-    // imgProfile.src = profile.usuario[0]["profile-image"]
+    imgProfile.src = profile.usuario[0]["profile-image"]
     nameProfile.innerHTML = profile.usuario[0].account
     phone.innerHTML = profile.usuario[0].number
 }
@@ -90,9 +95,9 @@ function createContacts(contacts) {
 
         let lastMessage = contact.messages.length - 1
 
-        //img.src = contact.image
+        img.src = contact.image
 
-        divContato.id = `${contact.number}/${contact.name}/${contact.image}`
+        divContato.id = `${contact.number}/divisor/${contact.name}/divisor/${contact.image}`
         pNome.innerHTML = contact.name
         pUltimaMensagem.innerHTML = contact.messages[lastMessage].content
         pData.innerHTML = contact.messages[lastMessage].time
@@ -105,7 +110,7 @@ function createContacts(contacts) {
 //Adiciona o listener em cada card de contato
 function addListener(contato) {
     contato.addEventListener('click', async () => {
-        let id = String(event.currentTarget.id).split('/')
+        let id = String(event.currentTarget.id).split('/divisor/')
         const sectionConversa = document.getElementById('conversasTela')
         const sectionMain = document.getElementById('sectionMain')
         const nomeMain = document.getElementById('nomeMain')
@@ -127,7 +132,8 @@ function addListener(contato) {
         }
 
         nomeMain.innerHTML = id[1]
-        //imgPerfil.src = id[2]
+        console.log(id[2])
+        imgPerfil.src = id[2]
 
         while (sectionConversa.firstChild) {
             sectionConversa.removeChild(sectionConversa.firstChild)
@@ -468,6 +474,18 @@ iconClose.addEventListener('click', () => {
     sectionConversas.style.height = 'calc(100% + 62.5px)'
     sectionConversas.style.marginTop = '-62.5px'
     divNotification[0].style.display = 'none'
+})
+
+containerMicrophone.addEventListener('mouseenter', () => {
+    const michophone = document.getElementById('michophone')
+    michophone.src = '../img/whiteMicrophone.png'
+    containerMicrophone.style.backgroundColor = '#1daa61'
+})
+
+containerMicrophone.addEventListener('mouseleave', () => {
+    const michophone = document.getElementById('michophone')
+    michophone.src = '../img/voz.png'
+    containerMicrophone.style.backgroundColor = ''
 })
 
 //Define a cor de fundo para o ícone de mensagem
