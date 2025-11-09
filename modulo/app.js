@@ -22,6 +22,10 @@ const sectionConfig = document.getElementById('configuracoesSection')
 const sectionPerfil = document.getElementById('perfilSection')
 const containerMicrophone = document.getElementById('containerMichophone')
 const iconLogout = document.getElementById('logout')
+const questionLogout = document.getElementById('logoutQuestion')
+const filterBlack = document.getElementById('filterBlack')
+const cancelLogout = document.getElementById('cancelLogout')
+const confirmLogout = document.getElementById('confirmLogout')
 
 //Var para extrair dados da url
 var urlSearch = new URLSearchParams(location.search)
@@ -475,7 +479,28 @@ iconPerfil.addEventListener('click', () => {
 })
 
 iconLogout.addEventListener('click', () => {
-    
+    questionLogout.classList.remove('reverse')
+    questionLogout.style.opacity = 1
+    questionLogout.classList.add('expandir')
+    filterBlack.style.display = 'flex'
+})
+
+filterBlack.addEventListener('click', () => {
+    questionLogout.classList.remove('expandir')
+    questionLogout.style.opacity = 0
+    questionLogout.classList.add('reverse')
+    filterBlack.style.display = 'none'
+})
+
+cancelLogout.addEventListener('click', () => {
+    questionLogout.classList.remove('expandir')
+    questionLogout.style.opacity = 0
+    questionLogout.classList.add('reverse')
+    filterBlack.style.display = 'none'
+})
+
+confirmLogout.addEventListener('click', () => {
+    window.open('../index.html', "_self")
 })
 
 iconClose.addEventListener('click', () => {

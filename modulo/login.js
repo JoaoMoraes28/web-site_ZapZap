@@ -29,7 +29,7 @@ async function verifyDatasUser(profile, userName, number) {
 
         } else {
             messageError.innerHTML = 'Nome do usuário incorreto!'
-            
+
         }
 
     } else {
@@ -50,4 +50,16 @@ buttonLogin.addEventListener('mouseleave', () => {
 
 buttonLogin.addEventListener('click', async () => {
     await callUser()
+})
+
+inputUser.addEventListener('keypress', async (event) => {
+    if (event.key == 'Enter') {
+        await callUser()
+    }
+})
+
+inputNumber.addEventListener('keypress', async (event) => {
+    if (event.key == 'Enter') {
+        await callUser()
+    }
 })
