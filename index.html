@@ -3,14 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="shortcut icon" href="./img/favicon-32x32.png" type="image/x-icon">
     <script src="./modulo/login.js" defer></script>
-    <title>Login Document</title>
+    <title>Login | Zap</title>
 </head>
 <body>
+    <header>
+        <div class="containerContatos">
+            <div class="containerHeaderContatos">
+                <div class="containerImg">
+                    <img class="arrow" src="img/arrowComunidade.png" alt="">
+                </div>
+                <h2>Usuários Cadastrados</h2>
+            </div>
+            <ul id="userList">
+                <li>Ricardo da Silva <span>11987876567</span></li>
+                <li>Bernardo Xavier Ribeiro <span>26999999910</span></li>
+                <li>Sandy Wilstern <span>11955577796</span></li>
+                <li>Jonathan Xavier <span>1194457796</span></li>
+            </ul>
+        </div>
+    </header>
     <main>
         <section id="sectionLogin">
-            <img src="./img/iconPerfil.png" alt="">
+            <img src="img/iconPerfil.png" alt="">
             <div class="containerLabel">
                 <label for="userName">Nome de Usuário</label>
                 <input type="text" id="userName">

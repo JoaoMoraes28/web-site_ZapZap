@@ -4,6 +4,8 @@ const buttonLogin = document.getElementById('buttonLogin')
 const inputUser = document.getElementById('userName')
 const inputNumber = document.getElementById('numberPass')
 const messageError = document.getElementById('messageError')
+const arrowContacts = document.querySelector('.arrow')
+const containerContacts = document.querySelector('.containerContatos')
 
 async function callUser() {
     let user = inputUser.value
@@ -25,7 +27,7 @@ async function callUser() {
 async function verifyDatasUser(profile, userName, number) {
     if (profile.status_code == 200) {
         if (String(profile.usuario[0].account).toLowerCase() == String(userName).toLowerCase()) {
-            window.open(`../main.html?number=${number}`, "_self")
+            window.open(`main.html?number=${number}`, "_self")
 
         } else {
             messageError.innerHTML = 'Nome do usuário incorreto!'
@@ -37,6 +39,11 @@ async function verifyDatasUser(profile, userName, number) {
 
     }
 }
+
+arrowContacts.addEventListener('click', () => {
+    containerContacts.classList.toggle('containerExpandido')
+    arrowContacts.classList.toggle('imgBaixo')
+})
 
 buttonLogin.addEventListener('mouseenter', () => {
     buttonLogin.style.backgroundColor = '#1daa61'

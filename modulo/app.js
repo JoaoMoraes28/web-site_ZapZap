@@ -7,6 +7,7 @@ var telaHigh = 'inicial'
 var divIconHigh = 'conversasDiv'
 var firstContactEvent = true
 
+var contatos = []
 const iconContatos = document.getElementById('conversas')
 const iconStatus = document.getElementById('status')
 const iconCanais = document.getElementById('canais')
@@ -26,6 +27,7 @@ const questionLogout = document.getElementById('logoutQuestion')
 const filterBlack = document.getElementById('filterBlack')
 const cancelLogout = document.getElementById('cancelLogout')
 const confirmLogout = document.getElementById('confirmLogout')
+const inputHeader = document.getElementById('inputHeader')
 
 //Var para extrair dados da url
 var urlSearch = new URLSearchParams(location.search)
@@ -80,7 +82,6 @@ async function buildProfile() {
 
 //Criação dos cards de contato
 function createContacts(contacts) {
-    let contatos = []
     contacts.forEach((contact) => {
         const divContato = document.createElement('div')
         const divImg = document.createElement('div')
@@ -130,7 +131,7 @@ function addListener(contato) {
             const headerMain = document.getElementById('headerMain')
             const telaInicial = document.getElementById('inicialTela')
 
-            sectionMain.style.backgroundImage = 'url(./img/zapzap.jpg)'
+            sectionMain.style.backgroundImage = 'url(img/zapzap.jpg)'
             sectionConversa.style.justifyContent = 'start'
             sectionConversa.style.alignItems = 'start'
             telaInicial.style.display = 'none'
@@ -182,20 +183,37 @@ function createMessages(message) {
     }
 }
 
+//Pesquisa um contato em específico
+function findContact(name) {
+    contatos.forEach((contato) => {
+        if (String(contato.id).toLowerCase().includes(name.toLowerCase())) {
+            contato.style.display = 'flex'
+
+        } else {
+            contato.style.display = 'none'
+            
+        }
+    })
+}
+
+inputHeader.addEventListener('input', () => {
+    findContact(inputHeader.value)
+})
+
 //Código para interação entre os ícones na barra de navegação
 //Listener responsável por exibir tela e section selecionado e ocultar as anteriores
 iconContatos.addEventListener('click', () => {
     if (sectionHigh == 'comunidades') {
-        iconComunidade.src = '../img/comunidade.png'
+        iconComunidade.src = 'img/comunidade.png'
 
     } else if (sectionHigh == 'status') {
-        iconStatus.src = '../img/status.png'
+        iconStatus.src = 'img/status.png'
 
     } else if (sectionHigh == 'canais') {
-        iconCanais.src = '../img/canais.png'
+        iconCanais.src = 'img/canais.png'
 
     } else if (sectionHigh == 'configuracoes') {
-        iconConfig.src = '../img/config.png'
+        iconConfig.src = 'img/config.png'
 
     }
 
@@ -216,7 +234,7 @@ iconContatos.addEventListener('click', () => {
         const sectionMain = document.getElementById('sectionMain')
         telaInicial.style.display = 'none'
 
-        sectionMain.style.backgroundImage = 'url(./img/zapzap.jpg)'
+        sectionMain.style.backgroundImage = 'url(img/zapzap.jpg)'
         divMessages.style.display = 'flex'
         divInput.style.display = 'flex'
         divHeader.style.display = 'flex'
@@ -226,7 +244,7 @@ iconContatos.addEventListener('click', () => {
         const highDiv = document.getElementById(`${divIconHigh}`)
         const divIcon = document.getElementById('conversasDiv')
         divIcon.style.backgroundColor = '#d2d2d2'
-        iconContatos.src = '../img/conversasBlack.png'
+        iconContatos.src = 'img/conversasBlack.png'
         highDiv.style.backgroundColor = ''
         divIconHigh = iconContatos.parentNode.id
     }
@@ -234,16 +252,16 @@ iconContatos.addEventListener('click', () => {
 
 iconStatus.addEventListener('click', () => {
     if (sectionHigh == 'conversas') {
-        iconContatos.src = '../img/conversas.png'
+        iconContatos.src = 'img/conversas.png'
 
     } else if (sectionHigh == 'comunidades') {
-        iconComunidade.src = '../img/comunidade.png'
+        iconComunidade.src = 'img/comunidade.png'
 
     } else if (sectionHigh == 'canais') {
-        iconCanais.src = '../img/canais.png'
+        iconCanais.src = 'img/canais.png'
 
     } else if (sectionHigh == 'configuracoes') {
-        iconConfig.src = '../img/config.png'
+        iconConfig.src = 'img/config.png'
 
     }
 
@@ -275,7 +293,7 @@ iconStatus.addEventListener('click', () => {
         const highDiv = document.getElementById(`${divIconHigh}`)
         const divIcon = document.getElementById('statusDiv')
         divIcon.style.backgroundColor = '#d2d2d2'
-        iconStatus.src = '../img/statusBlack.png'
+        iconStatus.src = 'img/statusBlack.png'
         highDiv.style.backgroundColor = ''
         divIconHigh = iconStatus.parentNode.id
     }
@@ -283,16 +301,16 @@ iconStatus.addEventListener('click', () => {
 
 iconCanais.addEventListener('click', () => {
     if (sectionHigh == 'conversas') {
-        iconContatos.src = '../img/conversas.png'
+        iconContatos.src = 'img/conversas.png'
 
     } else if (sectionHigh == 'status') {
-        iconStatus.src = '../img/status.png'
+        iconStatus.src = 'img/status.png'
 
     } else if (sectionHigh == 'comunidades') {
-        iconComunidade.src = '../img/comunidade.png'
+        iconComunidade.src = 'img/comunidade.png'
 
     } else if (sectionHigh == 'configuracoes') {
-        iconConfig.src = '../img/config.png'
+        iconConfig.src = 'img/config.png'
 
     }
 
@@ -324,7 +342,7 @@ iconCanais.addEventListener('click', () => {
         const highDiv = document.getElementById(`${divIconHigh}`)
         const divIcon = document.getElementById('canaisDiv')
         divIcon.style.backgroundColor = '#d2d2d2'
-        iconCanais.src = '../img/canaisBlack.png'
+        iconCanais.src = 'img/canaisBlack.png'
         highDiv.style.backgroundColor = ''
         divIconHigh = iconCanais.parentNode.id
     }
@@ -332,16 +350,16 @@ iconCanais.addEventListener('click', () => {
 
 iconComunidade.addEventListener('click', () => {
     if (sectionHigh == 'conversas') {
-        iconContatos.src = '../img/conversas.png'
+        iconContatos.src = 'img/conversas.png'
 
     } else if (sectionHigh == 'status') {
-        iconStatus.src = '../img/status.png'
+        iconStatus.src = 'img/status.png'
 
     } else if (sectionHigh == 'canais') {
-        iconCanais.src = '../img/canais.png'
+        iconCanais.src = 'img/canais.png'
 
     } else if (sectionHigh == 'configuracoes') {
-        iconConfig.src = '../img/config.png'
+        iconConfig.src = 'img/config.png'
 
     }
 
@@ -373,7 +391,7 @@ iconComunidade.addEventListener('click', () => {
         const highDiv = document.getElementById(`${divIconHigh}`)
         const divIcon = document.getElementById('comunidadesDiv')
         divIcon.style.backgroundColor = '#d2d2d2'
-        iconComunidade.src = '../img/comunidadeBlack.png'
+        iconComunidade.src = 'img/comunidadeBlack.png'
         highDiv.style.backgroundColor = ''
         divIconHigh = iconComunidade.parentNode.id
     }
@@ -381,16 +399,16 @@ iconComunidade.addEventListener('click', () => {
 
 iconConfig.addEventListener('click', () => {
     if (sectionHigh == 'conversas') {
-        iconContatos.src = '../img/conversas.png'
+        iconContatos.src = 'img/conversas.png'
 
     } else if (sectionHigh == 'status') {
-        iconStatus.src = '../img/status.png'
+        iconStatus.src = 'img/status.png'
 
     } else if (sectionHigh == 'canais') {
-        iconCanais.src = '../img/canais.png'
+        iconCanais.src = 'img/canais.png'
 
     } else if (sectionHigh == 'comunidades') {
-        iconComunidade.src = '../img/comunidade.png'
+        iconComunidade.src = 'img/comunidade.png'
 
     }
 
@@ -422,7 +440,7 @@ iconConfig.addEventListener('click', () => {
         const highDiv = document.getElementById(`${divIconHigh}`)
         const divIcon = document.getElementById('configuracoesDiv')
         divIcon.style.backgroundColor = '#d2d2d2'
-        iconConfig.src = '../img/configBlack.png'
+        iconConfig.src = 'img/configBlack.png'
         highDiv.style.backgroundColor = ''
         divIconHigh = iconConfig.parentNode.id
     }
@@ -430,19 +448,19 @@ iconConfig.addEventListener('click', () => {
 
 iconPerfil.addEventListener('click', () => {
     if (sectionHigh == 'conversas') {
-        iconContatos.src = '../img/conversas.png'
+        iconContatos.src = 'img/conversas.png'
 
     } else if (sectionHigh == 'status') {
-        iconStatus.src = '../img/status.png'
+        iconStatus.src = 'img/status.png'
 
     } else if (sectionHigh == 'canais') {
-        iconCanais.src = '../img/canais.png'
+        iconCanais.src = 'img/canais.png'
 
     } else if (sectionHigh == 'comunidades') {
-        iconComunidade.src = '../img/comunidade.png'
+        iconComunidade.src = 'img/comunidade.png'
 
     } else if (sectionHigh == 'configuracoes') {
-        iconConfig.src = '../img/config.png'
+        iconConfig.src = 'img/config.png'
     }
 
     let sectionNone = document.getElementById(`${sectionHigh}Section`)
@@ -500,7 +518,7 @@ cancelLogout.addEventListener('click', () => {
 })
 
 confirmLogout.addEventListener('click', () => {
-    window.open('../index.html', "_self")
+    window.open('index.html', "_self")
 })
 
 iconClose.addEventListener('click', () => {
@@ -512,13 +530,13 @@ iconClose.addEventListener('click', () => {
 
 containerMicrophone.addEventListener('mouseenter', () => {
     const michophone = document.getElementById('michophone')
-    michophone.src = '../img/whiteMicrophone.png'
+    michophone.src = 'img/whiteMicrophone.png'
     containerMicrophone.style.backgroundColor = '#1daa61'
 })
 
 containerMicrophone.addEventListener('mouseleave', () => {
     const michophone = document.getElementById('michophone')
-    michophone.src = '../img/voz.png'
+    michophone.src = 'img/voz.png'
     containerMicrophone.style.backgroundColor = ''
 })
 
