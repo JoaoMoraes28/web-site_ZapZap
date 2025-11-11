@@ -7,6 +7,18 @@ const messageError = document.getElementById('messageError')
 const arrowContacts = document.querySelector('.arrow')
 const containerContacts = document.querySelector('.containerContatos')
 
+function verifyWithScreen() {
+    let widthScreen = screen.width
+
+    if (widthScreen <= 1024) {
+        const sectionLogin = document.getElementById('sectionLogin')
+        const warningMobile = document.getElementById('warningMobile')
+        
+        warningMobile.style.display = 'flex'
+        sectionLogin.style.display = 'none'
+    } 
+}
+
 async function callUser() {
     let user = inputUser.value
     let number = inputNumber.value
@@ -70,3 +82,5 @@ inputNumber.addEventListener('keypress', async (event) => {
         await callUser()
     }
 })
+
+verifyWithScreen()

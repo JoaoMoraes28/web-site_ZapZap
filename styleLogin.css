@@ -28,6 +28,93 @@ body {
     background-size: contain;
 }
 
+/* Section para dispositivos Mobiles */
+#warningMobile {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: var(--verde_claro);
+}
+
+.containerMobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 90%;
+    height: 85%;
+    padding: 20% 10px 0px 10px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.containerLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.containerLogo h1 {
+    font-size: 20px;
+    color: var(--verde_forte);
+}
+
+.imgLogo {
+    width: 50px;
+}
+
+.imgMain {
+    width: 70%;
+    height: auto;
+    margin-top: 50px;
+}
+
+.containerInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 80px;
+}
+
+.containerInfo p {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 50px;
+}
+
+#linkGit {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    background-color: var(--input);
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+#linkGit img {
+    background-color: black;
+    border-radius: 100%;
+}
+
 header {
     width: 100%;
     height: 270px;
@@ -45,7 +132,7 @@ header {
     transition: 0.2s ease-in-out;
 }
 
-.containerHeaderContatos{
+.containerHeaderContatos {
     display: flex;
     justify-content: center;
     align-items: center;

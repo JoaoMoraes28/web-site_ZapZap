@@ -984,10 +984,6 @@ nav {
     border-radius: 15px;
 }
 
-.none {
-    display: none;
-}
-
 .contato:hover {
     background-color: var(--input);
 }
