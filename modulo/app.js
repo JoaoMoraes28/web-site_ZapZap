@@ -28,6 +28,7 @@ const filterBlack = document.getElementById('filterBlack')
 const cancelLogout = document.getElementById('cancelLogout')
 const confirmLogout = document.getElementById('confirmLogout')
 const inputHeader = document.getElementById('inputHeader')
+const progressBar = document.getElementById('progress')
 
 //Var para extrair dados da url
 var urlSearch = new URLSearchParams(location.search)
@@ -191,7 +192,7 @@ function findContact(name) {
 
         } else {
             contato.style.display = 'none'
-            
+
         }
     })
 }
@@ -539,6 +540,22 @@ containerMicrophone.addEventListener('mouseleave', () => {
     michophone.src = 'img/voz.png'
     containerMicrophone.style.backgroundColor = ''
 })
+
+var a
+
+function loadProgress() {
+    console.log(contatos.length)
+    if (contatos.length > 0) {
+        progressBar.style.width = '100%'
+        let divProgress = document.querySelector('.progressBar')
+        divProgress.style.display = 'none'
+        clearTimeout(a)
+    }
+}
+
+setTimeout(() => {
+    a = setInterval(loadProgress, 200)
+}, 4000)
 
 //Define a cor de fundo para o ícone de mensagem
 const firstDivHigh = document.getElementById(`${divIconHigh}`)

@@ -37,6 +37,77 @@ body {
 }
 
 /* Section ocultas */
+/* Barra de progresso */
+.progressBar {
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30%;
+    width: 100vw;
+    height: 100vh;
+    gap: 15px;
+    background-color: var(--fundo);
+    z-index: 40;
+}
+
+.progressBar p {
+    font-size: 20px;
+}
+
+.bar {
+    width: 350px;
+    height: 10px;
+    background-color: var(--cor_cinza_fonte);
+    border-radius: 20px;
+}
+
+#progress {
+    width: 75%;
+    height: 100%;
+    background-color: var(--verde_forte);
+    border-radius: 20px;
+    transition: 0.5s ease-in-out;
+    animation: progress 5s ease-in-out;
+}
+
+.progressBar img {
+    width: 60px;
+}
+
+.progressBar span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: var(--cor_cinza_fonte_escrita);
+}
+
+.progressBar span img {
+    width: 20px;
+    margin-bottom: 6px;
+}
+
+@keyframes progress {
+    0%, 15% {
+        width: 0%;
+    }
+    15%, 45% {
+        width: 15%;
+    }
+    45%, 60% {
+        width: 45%;
+    }
+    60%, 75% {
+        width: 60%;
+    } 
+    75%, 85% {
+        width: 75%;
+    }
+}
+
+
 /* Section da aba de status */
 #statusSection {
     position: absolute;
