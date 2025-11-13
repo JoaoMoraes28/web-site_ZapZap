@@ -499,21 +499,21 @@ iconPerfil.addEventListener('click', () => {
 
 iconLogout.addEventListener('click', () => {
     questionLogout.classList.remove('reverse')
-    questionLogout.style.opacity = 1
+    questionLogout.style.zIndex = 50
     questionLogout.classList.add('expandir')
     filterBlack.style.display = 'flex'
 })
 
 filterBlack.addEventListener('click', () => {
     questionLogout.classList.remove('expandir')
-    questionLogout.style.opacity = 0
+    questionLogout.style.zIndex = -10
     questionLogout.classList.add('reverse')
     filterBlack.style.display = 'none'
 })
 
 cancelLogout.addEventListener('click', () => {
     questionLogout.classList.remove('expandir')
-    questionLogout.style.opacity = 0
+    questionLogout.style.zIndex = -10
     questionLogout.classList.add('reverse')
     filterBlack.style.display = 'none'
 })
@@ -541,20 +541,25 @@ containerMicrophone.addEventListener('mouseleave', () => {
     containerMicrophone.style.backgroundColor = ''
 })
 
-var a
-
+var functionIntervalProgress
+//Conclui o carregamento da barra de progresso
 function loadProgress() {
-    console.log(contatos.length)
     if (contatos.length > 0) {
+        const telaInicial = document.getElementById('inicialTela')
+
         progressBar.style.width = '100%'
-        let divProgress = document.querySelector('.progressBar')
-        divProgress.style.display = 'none'
-        clearTimeout(a)
+        setTimeout(() => {
+            let divProgress = document.querySelector('.progressBar')
+            divProgress.style.display = 'none'
+            telaInicial.style.display = 'flex'
+        }, 1000);
+        clearTimeout(functionIntervalProgress)
     }
 }
 
+//Intervalo para iniciar a verificação da conclusão dos dados
 setTimeout(() => {
-    a = setInterval(loadProgress, 200)
+    functionIntervalProgress = setInterval(loadProgress, 200)
 }, 4000)
 
 //Define a cor de fundo para o ícone de mensagem

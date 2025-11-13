@@ -6,6 +6,7 @@ const inputNumber = document.getElementById('numberPass')
 const messageError = document.getElementById('messageError')
 const arrowContacts = document.querySelector('.arrow')
 const containerContacts = document.querySelector('.containerContatos')
+const verifyDiv = document.querySelector('.verifyUser')
 
 function verifyWithScreen() {
     let widthScreen = screen.width
@@ -13,18 +14,20 @@ function verifyWithScreen() {
     if (widthScreen <= 1024) {
         const sectionLogin = document.getElementById('sectionLogin')
         const warningMobile = document.getElementById('warningMobile')
-        
+
         warningMobile.style.display = 'flex'
         sectionLogin.style.display = 'none'
-    } 
+    }
 }
 
 async function callUser() {
+    verifyDiv.style.opacity = 1
     let user = inputUser.value
     let number = inputNumber.value
 
     if (user == '' || user == null || user == undefined || number == '' || number == null || number == undefined) {
         messageError.innerHTML = 'Campos obrigatórios vazios!'
+        verifyDiv.style.opacity = 0
 
     } else {
         let url = `https://api-zapzap.onrender.com/v1/user/${number}`
@@ -43,11 +46,13 @@ async function verifyDatasUser(profile, userName, number) {
 
         } else {
             messageError.innerHTML = 'Nome do usuário incorreto!'
+            verifyDiv.style.opacity = 0
 
         }
 
     } else {
         messageError.innerHTML = 'Usuário não encontrado!'
+        verifyDiv.style.opacity = 0
 
     }
 }

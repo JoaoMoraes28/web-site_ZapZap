@@ -24,7 +24,7 @@ a {
 }
 
 body {
-    background-image: url(./img/zapzap.jpg);
+    background-image: url(/img/zapzap.jpg);
     background-size: contain;
 }
 
@@ -115,6 +115,7 @@ a {
     border-radius: 100%;
 }
 
+/* Header contendo os usuários já cadastrados */
 header {
     width: 100%;
     height: 270px;
@@ -204,6 +205,8 @@ header {
     padding-left: 10px;
 }
 
+
+/* Section de Login */
 main {
     display: flex;
     justify-content: center;
@@ -218,10 +221,102 @@ main {
     align-items: center;
     flex-direction: column;
     width: 500px;
-    height: 400px;
+    height: 480px;
     gap: 20px;
     background-color: var(--fundo);
     border-radius: 30px;
+}
+
+.verifyUser {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    opacity: 0;
+    width: 100%;
+    height: 40px;
+    padding-left: 25px;
+    gap: 5px;
+    border-radius: 30px;
+}
+
+.verifyUser span {
+    margin-right: 15px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.point {
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50px;
+}
+
+.first {
+    animation: firstPoint 3s ease-in-out infinite;
+    transition: 0.2s;
+}
+
+.second {
+    animation: secondPoint 3s ease-in-out infinite;
+    transition: 0.2s;
+}
+
+.third {
+    animation: thirdPoint 3s ease-in-out infinite;
+    transition: 0.2s;
+}
+
+@keyframes firstPoint {
+
+    0%,
+    33% {
+        transform: scale(1.4);
+        background-color: var(--verde_forte);
+    }
+
+    33%,
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes secondPoint {
+
+    0%,
+    33% {
+        transform: scale(1);
+    }
+
+    33%,
+    66% {
+        transform: scale(1.4);
+        background-color: var(--verde_forte);
+    }
+
+    66%,
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes thirdPoint {
+
+    0%,
+    66% {
+        transform: scale(1);
+    }
+
+    66%,
+    90% {
+        transform: scale(1.4);
+        background-color: var(--verde_forte);
+    }
+
+    90%,
+    100% {
+        transform: scale(1);
+    }
 }
 
 #sectionLogin img {

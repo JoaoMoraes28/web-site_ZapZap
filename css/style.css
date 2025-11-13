@@ -44,7 +44,7 @@ body {
     justify-content: start;
     align-items: center;
     flex-direction: column;
-    padding-top: 30%;
+    padding-top: 15%;
     width: 100vw;
     height: 100vh;
     gap: 15px;
@@ -58,7 +58,7 @@ body {
 
 .bar {
     width: 350px;
-    height: 10px;
+    height: 5px;
     background-color: var(--cor_cinza_fonte);
     border-radius: 20px;
 }
@@ -636,7 +636,6 @@ body {
 }
 
 #logoutQuestion {
-    opacity: 0;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -647,12 +646,12 @@ body {
     padding: 25px 10px 10px 25px;
     overflow: hidden;
     transition: 0.1s ease-in-out;
-    z-index: 50;
+    z-index: -10;
 }
 
 #logoutQuestion::before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: calc(50% - 11px);
     left: calc(50% - 22px);
     width: 44px;
@@ -660,7 +659,7 @@ body {
     background: rgb(255, 255, 255);
     border-radius: 2px;
     z-index: -10;
-    transition: 0.4s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
 
 .expandir::before {
@@ -1298,7 +1297,7 @@ nav {
 
 /* Primeira tela que aparece ao iniciar o web-site */
 #inicialTela {
-    display: flex;
+    display: none;
     align-items: center;
     flex-direction: column;
     height: 450px;
