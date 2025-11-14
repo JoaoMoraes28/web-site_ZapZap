@@ -7,6 +7,7 @@ const messageError = document.getElementById('messageError')
 const arrowContacts = document.querySelector('.arrow')
 const containerContacts = document.querySelector('.containerContatos')
 const verifyDiv = document.querySelector('.verifyUser')
+const body = document.querySelector('body').style.backgroundImage = 'url(img/zapzap.jpg)'
 
 function verifyWithScreen() {
     let widthScreen = screen.width
